@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="./fruta.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>DOM</title>
+</head>
+<body>
+    <header class="colorNaranja flex justify-between p-3 font-bold  " >
+        <h2 class="font-bold" >Ejercicio de DOM</h2>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+    <main id="contenedorMain" >
+        <h1 id="titulo" >Datos</h1>
+        <div id="contenedor" class="contenedor flex flex-wrap justify-around  w-[80%]  border-black gap-3 "></div>
+        <div id="frutasDulces"></div>
+    </main>
+    <footer class="colorNaranja" >
+        <p>MindHub ©</p>
+    </footer>
+    <script src="./data.js"></script>
+    <script src="./index.js"></script>
+    <script src="./tailwind.config.js" ></script>
+</body>
+</html>
