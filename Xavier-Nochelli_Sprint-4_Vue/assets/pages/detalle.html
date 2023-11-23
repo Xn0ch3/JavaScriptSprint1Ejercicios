@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="shortcut icon" href="/assets/images/palomitas.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Movies Details</title>
+</head>
+
+<body class="bg-black text-white">
+    <div id="app">
+
+        <header class="bg-white text-black flex content-center items-center justify-between gap-2 h-10 rounded-md">
+            <div class="flex items-center gap-2">
+                <img class="w-6" src="/assets/images/palomitas.png" alt="logo">
+                <h1 class=" p-2  bg-black text-white rounded-md"> Moviestack </h1>
+            </div>
+            <nav class="bg-white text-black flex items-center gap-2">
+                <a class=" p-2 bg-black text-white rounded-md
+            hover:bg-white hover:text-black  hover:border-black" href="/index.html">Home</a>
+                <a class=" p-2 bg-black text-white rounded-md
+            hover:bg-white hover:text-black  hover:border-black" href="/assets/pages/movies.html">Movies</a>
+                <a class=" p-2 bg-black text-white rounded-md
+            hover:bg-white hover:text-black  hover:border-black" href="/assets/pages/favs.html">Favs</a>
+            </nav>
+        </header>
+
+        <main class=" min-h-screen">
+            <div id="banner">
+                <img class="object-cover" id="bannerImage" src="https://moviestack.onrender.com/static/y5szbv8zju.jpg"
+                    alt="Banner Image">
+                <p id="bannerText">The Nun II</p>
+            </div>
+            <div class="flex   content-center justify-center items-center">
+
+                <template v-if="movie !==''">
+                    <article
+                        class="flex flex-col place-content-around bg-white text-black  items-center border solid border-white justify-items-center h-[40%] w-[70%] border-solid-5 p-5 rounded-lg hover:bg-black hover:text-white ">
+
+                        <div class=" flex flex-wrap items-center align-middle  justify-around  w-[100%] h-[50%] p-5 ">
+
+                            <img class="bg-black h-[16rem] w-[25rem] object-contain  rounded-lg "
+                                v-bind:src="'https://moviestack.onrender.com/static/'+ movie.image + '.jpg'"
+                                v-bind:alt="movie.title">
+                            <div class="flex flex-col  justify-around w-[20rem] ">
+                                <h2 class="font-extrabold ">{{movie.title}} </h2>
+                                <h3 class="font-semibold w-[50%] ">{{movie.tagline}}</h3>
+                                <p class="font-medium w-[100%] ">{{movie.overview}}</p>
+                            </div>
+
+                        </div>
+
+                        <div
+                            class="flex flex-wrap items-center align-middle  justify-around w-[100%] p-5 gap-5 rounded-md ">
+                            <table
+                                class="border-black text-black bg-white p-10 gap-5 rounded-md text-center w-[20rem] h-[10rem] border-solid-black ">
+                                <tbody>
+                                    <tr>
+                                        <th>Original Language</th>
+                                        <td>{{movie.original_language}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Release Date</th>
+                                        <td>{{movie.release_date}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Runtime</th>
+                                        <td>{{movie.runtime}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Status</th>
+                                        <td>{{movie.status}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <table
+                                class="border-black text-black bg-white p-10 gap-5 rounded-md text-center w-[20rem] h-[10rem] border-solid  ">
+                                <tbody>
+                                    <tr>
+                                        <th>Vote Average</th>
+                                        <td>{{movie.vote_average}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Budget</th>
+                                        <td>{{movie.budget}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Revenue</th>
+                                        <td>{{movie.revenue}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="flex flex-wrap justify-between font-semibold w-[80%] ">
+                            <a class="rounded-md bg-black text-white hover:bg-white hover:text-black p-5 "
+                                href="/index.html">Home Moviestack</a>
+
+                            <a class="rounded-md bg-black text-white hover:bg-white hover:text-black p-5 "
+                                href="/assets/pages/movies.html">Movies</a>
+                        </div>
+                    </article>`
+                </template>
+            </div>
+
+        </main>
+        <footer class=" bg-white text-black">
+            <p class=" p-2  bg-black text-white rounded-md">
+                © 2023 - Home Moviestack - Cohort 52 - Xavier Nochelli
+            </p>
+        </footer>
+    </div>
+    <script type="module" src="../tailwind.config.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="../js/details.js"></script>
+</body>
+
+</html>

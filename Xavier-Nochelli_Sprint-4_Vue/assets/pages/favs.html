@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="shortcut icon" href="/assets/images/palomitas.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Movies Favs</title>
+</head>
+
+<body class="bg-black text-white">
+    <div id="app">
+
+        <header class="bg-white text-black flex content-center items-center justify-between gap-2 h-10 rounded-md">
+            <div class="flex items-center gap-2">
+                <img class="w-6" src="/assets/images/palomitas.png" alt="logo">
+                <h1 class=" p-2  bg-black text-white rounded-md"> Moviestack </h1>
+            </div>
+            <nav class="bg-white text-black flex items-center gap-2">
+                <a class=" p-2 bg-black text-white rounded-md
+            hover:bg-white hover:text-black  hover:border-black" href="/index.html">Home</a>
+                <a class=" p-2 bg-black text-white rounded-md
+            hover:bg-white hover:text-black  hover:border-black" href="/assets/pages/movies.html">Movies</a>
+                <a class=" p-2 bg-black text-white rounded-md
+            hover:bg-white hover:text-black  hover:border-black" href="/assets/pages/favs.html">Favs</a>
+            </nav>
+        </header>
+        <main>
+
+            <div id="banner">
+                <img class="object-cover" id="bannerImage" src="https://moviestack.onrender.com/static/y5szbv8zju.jpg"
+                    alt="Banner Image">
+                <p id="bannerText">The Nun II</p>
+            </div>
+            <div class="flex flex-wrap gap-10  content-center justify-center items-center" id="contenedorFavs">
+                <template v-if="favoritosFiltrados.length > 0 " v-for="favoritos of favoritosFiltrados">
+                    <article
+                        class="flex flex-col space-around bg-white text-black items-center border solid border-white justify-items-center h-[26rem] w-[20rem] border-solid-5 p-5 rounded-lg hover:bg-black hover:text-white"
+                        id="articleId">
+
+                        <img class="h-[13rem] w-[18rem] rounded-md"
+                            v-bind:src="'https://moviestack.onrender.com/static/' + favoritos.image"
+                            v-bind:alt="favoritos.title">
+                        <h2 class="font-extrabold">{{favoritos.title}}</h2>
+                        <div class="text-left">
+                            <h3 class="text-left line-clamp-1">{{favoritos.tagline}}</h3>
+                            <p class="line-clamp-3">{{favoritos.overview}}</p>
+                        </div>
+
+                        <button
+                            class="border bg-black text-white rounded-md hover:bg-white hover:text-black p-1 w-[5rem] h-[5rem]"
+                            v-on:click="moviesFav(favoritos.id)" data-accion="Favs" data-id="{{favoritos.id}}">
+                            <img data-accion="Favs" data-id="{{favoritos.id}}" id="imageFavs" src="../images/likeOFF.svg"
+                                alt="noLike">
+                        </button>
+
+
+                        <a class="border bg-black text-white rounded-md hover:bg-white hover:text-black p-1"
+                            v-on:click="movieDetails" v-bind:href="'./detalle.html?id=' + favoritos.id ">Movie Details</a>
+                    </article>
+                </template>
+                <template v-else>
+                    <h2
+                        class="flex justify-center font-bold  bg-white text-black items-center border solid border-white justify-items-center h-[15rem] w-[15rem] border-solid-5 p-5 rounded-lg hover:bg-black hover:text-white">
+                        No found Movies</h2>
+                </template>
+
+            </div>
+
+        </main>
+        <footer class=" bg-white text-black">
+            <p class=" p-2  bg-black text-white rounded-md">
+                © 2023 - Home Moviestack - Cohort 52 - Xavier Nochelli
+            </p>
+        </footer>
+
+    </div>
+
+    <script type="module" src="../tailwind.config.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script type="module" src="../js/favs.js"></script>
+</body>
+
+</html>
